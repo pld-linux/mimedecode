@@ -40,7 +40,9 @@ przesyłania.
 %patch0 -p1
 
 %build
-%{__make} -f debian/rules
+%{__make} -f debian/rules \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
